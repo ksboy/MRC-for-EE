@@ -190,6 +190,7 @@ class RCEntailModel(
         )
         #print(self.train_data.tokenizer.decode(inputs['input_ids'][0]))
         mnli_logits = self(inputs)
+        print(mnli_logits)
         # 0: contradict, 1: entailment, 2: neural
         assert self.params.neutral_as in ['positive', 'negative', 'none']
         event_logits = mnli_logits[:, :2]
